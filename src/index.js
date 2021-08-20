@@ -8,5 +8,5 @@ const server = new GraphQLServer({
 });
 
 server.start(() => {
-  console.log('Server runs by default on :4000');
+  console.log(`Server default runs on :4000`);
 });
