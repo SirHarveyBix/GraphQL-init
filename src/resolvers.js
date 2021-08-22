@@ -1,8 +1,21 @@
+import { posts, users } from './data/data';
 // 4 argument possible : query(parent, args, context, info)
+
 export const resolvers = {
   Query: {
-    greeting(parent, args, context, info) {
-      if (args.name) return `Hello ${args.name} ! you're ${args.pos}`;
+    users(parent, args, context, info) {
+      if (!args.query) return users;
+      return users.filter((user) => {
+        return user.name.toLowerCase().includes(args.query.toLowerCase());
+      });
+    },
+    posts(parent, args) {
+      if (!args.query) return posts;
+      return posts.filter((post) => {
+        const isTitle = post.title.toLowerCase().includes(args.query.toLowerCase());
+        const isBody = post.body.toLowerCase().includes(args.query.toLowerCase());
+        return isTitle || isBody;
+      });
     },
     me() {
       return {
@@ -10,14 +23,6 @@ export const resolvers = {
         name: 'Guillaume',
         age: 33,
         email: 'gui@gql.fr',
-      };
-    },
-    post() {
-      return {
-        id: '123',
-        title: 'Is this a Post or a post ?',
-        body: "that's the question everyone should ask !",
-        published: false,
       };
     },
   },
