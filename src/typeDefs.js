@@ -1,14 +1,10 @@
 import { gql } from 'graphql-modules';
-//scalar types : String, ID, Boolean, Int, Float // ! => must be filled
 
-//Schema
 export const typeDefs = gql`
   type Query {
-    greeting(name: String!, pos: String): String!
-    add(numbers: [Float!]!): Float!
-    grades: [Int]!
+    users(query: String): [User!]!
+    posts(query: String): [Post!]!
     me: User!
-    post: Post!
   }
   type User {
     id: ID!
