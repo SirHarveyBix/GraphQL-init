@@ -4,6 +4,13 @@ export const resolvers = {
     greeting(parent, args, context, info) {
       if (args.name) return `Hello ${args.name} ! you're ${args.pos}`;
     },
+    add(parents, args, context, info) {
+      if (args.numbers.lenght === 0) return 0;
+      return args.numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
+    },
+    grades(parents, args, context, info) {
+      return [0, 99, 197];
+    },
     me() {
       return {
         id: ' ABC-123',

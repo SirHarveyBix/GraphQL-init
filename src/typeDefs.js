@@ -5,6 +5,8 @@ import { gql } from 'graphql-modules';
 export const typeDefs = gql`
   type Query {
     greeting(name: String!, pos: String): String!
+    add(numbers: [Float!]!): Float!
+    grades: [Int]!
     me: User!
     post: Post!
   }
