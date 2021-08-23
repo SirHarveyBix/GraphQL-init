@@ -6,6 +6,10 @@ export const typeDefs = gql`
     posts(query: String): [Post!]!
     comments(query: String): [Comment!]!
   }
+
+  type Mutation {
+    createUser(name: String!, email: String!, age: Int): User!
+  }
   type User {
     id: ID!
     name: String!

@@ -29,7 +29,7 @@ export const posts = [
   },
   {
     id: '21',
-    title: 'Is Trump who create movement "Black Lives Matter" ?',
+    title: 'Is Trump who created the movement "Black Lives Matter" ?',
     body: "Conspiracy 2.0 has begun at it's most powerful strength, Embrace it",
     published: false,
     author: '3',
