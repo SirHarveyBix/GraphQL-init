@@ -20,21 +20,43 @@ export const users = [
 
 export const posts = [
   {
-    id: '1',
+    id: '10',
     title: 'Is this a Post or a post ?',
     body: "that's the question everyone should ask !",
     published: true,
+    author: '2',
   },
   {
-    id: '2',
-    title: 'is Trump a president that create movement "Black Lives Matter"',
+    id: '21',
+    title: 'Is Trump who create movement "Black Lives Matter" ?',
     body: "Conspiracy 2.0 has begun at it's most powerful strength, Embrace it",
     published: false,
+    author: '3',
   },
   {
-    id: '3',
+    id: '33',
     title: 'What the meaning of life ?',
     body: 'Hello World!, You gonna find the answer with a console.log(42)',
     published: true,
+    author: '1',
+  },
+];
+
+export const comments = [
+  {
+    id: '18',
+    textField: 'Agreed ! ',
+  },
+  {
+    id: '24',
+    textField: "That's my Girl ! ",
+  },
+  {
+    id: '33',
+    textField: 'Make war not peace !',
+  },
+  {
+    id: '121',
+    textField: 'Ask yourself dude, is it a comment, or a Comment ? I would say is just Spam !',
   },
 ];
