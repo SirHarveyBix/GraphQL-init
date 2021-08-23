@@ -24,15 +24,14 @@ export const resolvers = {
       });
     },
   },
+
   Mutation: {
     createUser(parent, args, context, info) {
       const emailTaken = users.some((user) => user.email === args.email);
       if (emailTaken) throw new Error('Email already taken.');
       const user = {
         id: uuidv4(),
-        name: args.name,
-        email: args.email,
-        age: args.age,
+        ...args,
       };
       users.push(user);
       console.log(users);
@@ -43,10 +42,7 @@ export const resolvers = {
       if (!userExists) throw new Error('User not found !');
       const post = {
         id: uuidv4(),
-        title: args.title,
-        body: args.body,
-        published: args.published,
-        author: args.author,
+        ...args,
       };
       posts.push(post);
       return post;
@@ -60,9 +56,7 @@ export const resolvers = {
 
       const comment = {
         id: uuidv4(),
-        textField: args.textField,
-        author: args.author,
-        post: args.post,
+        ...args,
       };
 
       comments.push(comment);
