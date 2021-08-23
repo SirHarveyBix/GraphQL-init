@@ -12,6 +12,7 @@ export const typeDefs = gql`
     email: String!
     age: Int
     posts: [Post!]!
+    comments: [Comment]
   }
   type Post {
     id: ID!
@@ -19,9 +20,12 @@ export const typeDefs = gql`
     body: String!
     published: Boolean!
     author: User!
+    comments: [Comment]!
   }
   type Comment {
     id: ID!
     textField: String!
+    author: User!
+    post: [Post!]!
   }
 `;
