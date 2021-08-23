@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { posts, users, comments } from './data/data';
 
 export const resolvers = {
@@ -23,6 +24,21 @@ export const resolvers = {
       });
     },
   },
+  Mutation: {
+    createUser(parent, args, context, info) {
+      const emailTaken = users.some((user) => user.email === args.email);
+      if (emailTaken) throw new Error('Email already taken.');
+      const user = {
+        id: uuidv4(),
+        name: args.name,
+        email: args.email,
+        age: args.age,
+      };
+      users.push(user);
+      console.log(users);
+      return user;
+    },
+  },
   // Relationship in resolver
   Post: {
     author(parent, args, context, info) {
@@ -41,10 +57,10 @@ export const resolvers = {
     },
   },
   Comment: {
-    author(parent, args) {
+    author(parent) {
       return users.find((user) => user.id === parent.author);
     },
-    post(parent, args) {
+    post(parent) {
       return posts.filter((post) => post.id === parent.post);
     },
   },
