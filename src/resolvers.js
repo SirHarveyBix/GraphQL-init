@@ -38,6 +38,36 @@ export const resolvers = {
       console.log(users);
       return user;
     },
+    createPost(parent, args, context, info) {
+      const userExists = users.some((user) => user.id === args.author);
+      if (!userExists) throw new Error('User not found !');
+      const post = {
+        id: uuidv4(),
+        title: args.title,
+        body: args.body,
+        published: args.published,
+        author: args.author,
+      };
+      posts.push(post);
+      return post;
+    },
+    createComment(parent, args) {
+      const userExists = users.some((user) => user.id === args.author);
+      const postExists = posts.some((post) => post.id === args.post && post.published);
+
+      if (!userExists || !postExists)
+        throw new Error("You're about to create a comment related to no one, or nothing.");
+
+      const comment = {
+        id: uuidv4(),
+        textField: args.textField,
+        author: args.author,
+        post: args.post,
+      };
+
+      comments.push(comment);
+      return comment;
+    },
   },
   // Relationship in resolver
   Post: {
