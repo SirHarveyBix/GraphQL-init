@@ -30,14 +30,14 @@ export const posts = [
   {
     id: '21',
     title: 'Is Trump who created the movement "Black Lives Matter" ?',
-    body: "Conspiracy 2.0 has begun at it's most powerful strength, Embrace it",
+    body: 'Conspiracy 2.0 has begun at its most powerful strength, Embrace it',
     published: false,
     author: '3',
     comments: ['18', '33'],
   },
   {
     id: '33',
-    title: 'What the meaning of life ?',
+    title: "What's the meaning of life ?",
     body: 'Hello World!, You gonna find the answer with a console.log(42)',
     published: true,
     author: '1',
