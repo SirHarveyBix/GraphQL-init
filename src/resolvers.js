@@ -27,36 +27,36 @@ export const resolvers = {
 
   Mutation: {
     createUser(parent, args, context, info) {
-      const emailTaken = users.some((user) => user.email === args.email);
+      const emailTaken = users.some((user) => user.email === args.data.email);
       if (emailTaken) throw new Error('Email already taken.');
       const user = {
         id: uuidv4(),
-        ...args,
+        ...args.data,
       };
       users.push(user);
       console.log(users);
       return user;
     },
     createPost(parent, args, context, info) {
-      const userExists = users.some((user) => user.id === args.author);
+      const userExists = users.some((user) => user.id === args.data.author);
       if (!userExists) throw new Error('User not found !');
       const post = {
         id: uuidv4(),
-        ...args,
+        ...args.data,
       };
       posts.push(post);
       return post;
     },
     createComment(parent, args) {
-      const userExists = users.some((user) => user.id === args.author);
-      const postExists = posts.some((post) => post.id === args.post && post.published);
+      const userExists = users.some((user) => user.id === args.data.author);
+      const postExists = posts.some((post) => post.id === args.data.post && post.published);
 
       if (!userExists || !postExists)
         throw new Error("You're about to create a comment related to no one, or nothing.");
 
       const comment = {
         id: uuidv4(),
-        ...args,
+        ...args.data,
       };
 
       comments.push(comment);
