@@ -25,6 +25,7 @@ export const posts = [
     body: "that's the question everyone should ask !",
     published: true,
     author: '2',
+    comments: ['121', '24'],
   },
   {
     id: '21',
@@ -32,6 +33,7 @@ export const posts = [
     body: "Conspiracy 2.0 has begun at it's most powerful strength, Embrace it",
     published: false,
     author: '3',
+    comments: ['18', '33'],
   },
   {
     id: '33',
@@ -39,24 +41,33 @@ export const posts = [
     body: 'Hello World!, You gonna find the answer with a console.log(42)',
     published: true,
     author: '1',
+    comments: [],
   },
 ];
 
 export const comments = [
   {
     id: '18',
-    textField: 'Agreed ! ',
+    textField: 'Agreed !',
+    author: '3',
+    post: '33',
   },
   {
     id: '24',
-    textField: "That's my Girl ! ",
+    textField: "That's my Girl !",
+    author: '1',
+    post: '10',
   },
   {
     id: '33',
     textField: 'Make war not peace !',
+    author: '2',
+    post: '21',
   },
   {
     id: '121',
-    textField: 'Ask yourself dude, is it a comment, or a Comment ? I would say is just Spam !',
+    textField: "Ask yourself dude, is it a comment, or a Comment ? I would say it's just Spam !",
+    author: '1',
+    post: '10',
   },
 ];

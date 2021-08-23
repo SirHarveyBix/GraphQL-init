@@ -18,9 +18,9 @@ export const resolvers = {
     },
     comments(parent, args) {
       if (!args.query) return comments;
-      return comments.filter((comment) =>
-        comment.textField.toLowerCase().includes(args.query.toLowerCase())
-      );
+      return comments.filter((comment) => {
+        return comment.textField.toLowerCase().includes(args.query.toLowerCase());
+      });
     },
   },
   // Relationship in resolver
@@ -28,10 +28,24 @@ export const resolvers = {
     author(parent, args, context, info) {
       return users.find((user) => user.id === parent.author);
     },
+    comments(parent, args) {
+      return comments.filter((comment) => comment.post === parent.id);
+    },
   },
   User: {
     posts(parent) {
       return posts.filter((post) => post.author === parent.id);
+    },
+    comments(parent, args) {
+      return comments.filter((comment) => comment.author === parent.id);
+    },
+  },
+  Comment: {
+    author(parent, args) {
+      return users.find((user) => user.id === parent.author);
+    },
+    post(parent, args) {
+      return posts.filter((post) => post.id === parent.post);
     },
   },
 };
