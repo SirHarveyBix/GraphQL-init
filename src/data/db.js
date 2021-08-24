@@ -1,4 +1,4 @@
-export const users = [
+const users = [
   {
     id: '1',
     name: 'Guillaume',
@@ -18,7 +18,7 @@ export const users = [
   },
 ];
 
-export const posts = [
+const posts = [
   {
     id: '10',
     title: 'Is this a Post or a post ?',
@@ -45,7 +45,7 @@ export const posts = [
   },
 ];
 
-export const comments = [
+const comments = [
   {
     id: '18',
     textField: 'Agreed !',
@@ -71,3 +71,11 @@ export const comments = [
     post: '10',
   },
 ];
+
+const db = {
+  users,
+  posts,
+  comments,
+};
+
+export { db as default };
