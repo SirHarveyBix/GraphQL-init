@@ -1,5 +1,5 @@
 const Query = {
-  users(parent, args, { db }, info) {
+  users(parent, args, { db }) {
     if (!args.query) return db.users;
     return db.users.filter((user) => user.name.toLowerCase().includes(args.query.toLowerCase()));
   },

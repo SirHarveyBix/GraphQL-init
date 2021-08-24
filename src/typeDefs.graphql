@@ -8,7 +8,9 @@ type Mutation {
   createUser(data: CreateUserInput!): User!
   deleteUser(id: ID): User!
   createPost(data: CreatePostInput!): Post!
+  deletePost(id: ID): Post!
   createComment(data: CreateCommentInput!): Comment!
+  deleteComment(id: ID): Comment!
 }
 
 input CreateUserInput {
@@ -34,7 +36,7 @@ type User {
   email: String!
   age: Int
   posts: [Post!]!
-  comments: [Comment]
+  comments: [Comment!]!
 }
 type Post {
   id: ID!
@@ -42,11 +44,11 @@ type Post {
   body: String!
   published: Boolean!
   author: User!
-  comments: [Comment]!
+  comments: [Comment!]!
 }
 type Comment {
   id: ID!
   textField: String!
   author: User!
-  post: [Post!]!
+  post: Post!
 }

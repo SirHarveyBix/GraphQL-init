@@ -16,6 +16,11 @@ const users = [
     name: 'Richard',
     email: 'ri@gql.fr',
   },
+  {
+    id: '4',
+    name: 'Didier',
+    email: 'didi@gql.fr',
+  },
 ];
 
 const posts = [
@@ -31,7 +36,7 @@ const posts = [
     id: '21',
     title: 'Is Trump who created the movement "Black Lives Matter" ?',
     body: 'Conspiracy 2.0 has begun at its most powerful strength, Embrace it',
-    published: false,
+    published: true,
     author: '3',
     comments: ['18', '33'],
   },
@@ -39,8 +44,16 @@ const posts = [
     id: '33',
     title: "What's the meaning of life ?",
     body: 'Hello World!, You gonna find the answer with a console.log(42)',
-    published: true,
+    published: false,
     author: '1',
+    comments: [],
+  },
+  {
+    id: '28',
+    title: 'Mom, did you saw my keys ?',
+    body: 'do not anwer tho !',
+    published: false,
+    author: '4',
     comments: [],
   },
 ];
@@ -69,6 +82,12 @@ const comments = [
     textField: "Ask yourself dude, is it a comment, or a Comment ? I would say it's just Spam !",
     author: '1',
     post: '10',
+  },
+  {
+    id: '117',
+    textField: 'How does his shit works ?!',
+    author: '4',
+    post: '28',
   },
 ];
 
