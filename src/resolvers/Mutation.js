@@ -9,7 +9,6 @@ const Mutation = {
       ...args.data,
     };
     db.users.push(user);
-    console.log(users);
     return user;
   },
   deleteUser(parent, args, { db }) {
