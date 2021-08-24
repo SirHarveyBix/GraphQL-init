@@ -71,5 +71,5 @@ type Comment {
   id: ID!
   textField: String!
   author: User!
-  post: Post!
+  post: [Post!]!
 }
