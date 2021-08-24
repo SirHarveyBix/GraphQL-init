@@ -14,14 +14,14 @@ const Mutation = {
   deleteUser(parent, args, { db }) {
     const userIndex = db.users.findIndex((user) => user.id === args.id);
     if (userIndex === -1) throw new Error('no User Found.');
-    const deleteUsers = db.users.splice(userIndex, 1);
+    const deletedUsers = db.users.splice(userIndex, 1);
     db.posts = db.posts.filter((post) => {
-      const match = post.authors === args.id;
-      if (match) comments = comments.filter((comment) => comment.post !== post.id);
+      const match = post.author === args.id;
+      if (match) db.comments = db.comments.filter((comment) => comment.post !== post.id);
       return !match;
     });
     db.comments = db.comments.filter((comment) => comment.author !== args.id);
-    return deleteUsers[0];
+    return deletedUsers[0];
   },
 
   createPost(parent, args, { db }, info) {
