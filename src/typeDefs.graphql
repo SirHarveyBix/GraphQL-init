@@ -17,10 +17,12 @@ type Mutation {
   deleteComment(id: ID!): Comment!
   updateComment(id: ID!, data: UpdateCommentInput): Comment!
 }
+
 type Subscription {
-  comment(postId: ID!): Comment!
+  comment(postId: ID!): CommentSubscriptionPayload!
   post: PostSubscriptionPayload!
 }
+
 input CreateUserInput {
   name: String!
   email: String!
@@ -75,6 +77,11 @@ type Comment {
   textField: String!
   author: User!
   post: [Post!]!
+}
+
+type CommentSubscriptionPayload {
+  mutation: String!
+  data: Comment!
 }
 
 type PostSubscriptionPayload {
