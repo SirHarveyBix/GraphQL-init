@@ -78,13 +78,19 @@ type Comment {
   author: User!
   post: [Post!]!
 }
+# Enum type :
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
 
 type CommentSubscriptionPayload {
-  mutation: String!
+  mutation: MutationType!
   data: Comment!
 }
 
 type PostSubscriptionPayload {
-  mutation: String!
+  mutation: MutationType!
   data: Post!
 }
